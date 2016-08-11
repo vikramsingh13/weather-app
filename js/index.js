@@ -7,7 +7,7 @@ var city, region, country, address, weatherCode, weatherCodeCache,
     buttonCitySearch = $('.button-city-search'),
     citySearchText = $('.city-search-text-field'),
     citySearchName,
-    weatherClass = ["wi wi-tornado", "wi wi-thunderstorm", "wi wi-hurricane", "wi wi-thunderstorm", "wi wi-thunderstorm", "wi wi-rain-mix", "wi wi-rain-mix", "wi wi-rain-mix", "wi wi-sprinkle", "wi wi-sprinkle", "wi wi-rain", "wi wi-showers", "wi wi-showers", "wi wi-snow", "wi wi-snow", "wi wi-snow-wind", "wi wi-snow", "wi wi-hail", "wi wi-sleet", "wi wi-dust", "wi wi-fog", "wi wi-fog", "wi wi-smoke", "wi wi-windy", "wi wi-windy", "wi wi-snowflake-cold", "wi wi-cloudy", "wi wi-night-alt-cloudy", "wi wi-wi-day-cloudy", "wi wi-night-partly-cloudy", "wi wi-sunny-day-overcast", "wi wi-night-clear", "wi wi-day-sunny", "wi wi-night-clear", "wi wi-day-sunny", "wi wi-rain-mix", "wi wi-thermometer", "wi wi-thunderstorm", "wi wi-thunderstorm", "wi wi-thunderstorm", "wi wi-showers", "wi wi-sleet", "wi wi-sleet", "wi wi-sleet","wi wi-cloud", "wi wi-storm-showers", "wi wi-rain-mix", "wi wi-storm-showers", "wi wi-alien"];
+    weatherClass = ["wi wi-tornado", "wi wi-thunderstorm", "wi wi-hurricane", "wi wi-thunderstorm", "wi wi-thunderstorm", "wi wi-rain-mix", "wi wi-rain-mix", "wi wi-rain-mix", "wi wi-sprinkle", "wi wi-sprinkle", "wi wi-rain", "wi wi-showers", "wi wi-showers", "wi wi-snow", "wi wi-snow", "wi wi-snow-wind", "wi wi-snow", "wi wi-hail", "wi wi-sleet", "wi wi-dust", "wi wi-fog", "wi wi-fog", "wi wi-smoke", "wi wi-windy", "wi wi-windy", "wi wi-snowflake-cold", "wi wi-cloudy", "wi wi-night-alt-cloudy", "wi wi-day-cloudy", "wi wi-night-partly-cloudy", "wi wi-sunny-day-overcast", "wi wi-night-clear", "wi wi-day-sunny", "wi wi-night-clear", "wi wi-day-sunny", "wi wi-rain-mix", "wi wi-thermometer", "wi wi-thunderstorm", "wi wi-thunderstorm", "wi wi-thunderstorm", "wi wi-showers", "wi wi-sleet", "wi wi-sleet", "wi wi-sleet","wi wi-cloud", "wi wi-storm-showers", "wi wi-rain-mix", "wi wi-storm-showers", "wi wi-alien"];
 
 function loadWeatherIcon(weatherCode){
   if(weatherCodeCache){
@@ -43,6 +43,7 @@ function loadWeather(location, woeid){
       $('.user-address').html(address);
       
       loadWeatherIcon(weather.code);
+      console.log(weather.code);
       
     },
     error: function(error){
