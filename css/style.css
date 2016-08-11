@@ -1,0 +1,64 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  background: #1192D3;
+}
+
+a,
+a:hover,
+a:focus{
+  text-decoration: none;
+  color: #000;
+}
+
+.weather-display {
+  margin: 5% 25% 0 25%;
+  text-align: center;
+  border: 2px solid #fff;
+  padding: 50px;
+  color: #fff;
+}
+
+.app-name{
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.row{
+  font-size: 40px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.user-address{
+  padding-bottom: 25px;
+}
+
+
+i {
+  color: #fff;
+  margin: 0 0 8px;
+  font-family: weather;
+  font-size: 60px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.0;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)
+}
+
+.temperature{
+}
+
+.search-city-user{
+  text-align: center;
+}
+
+.search-city{
+  font-size: 24px;
+  padding-bottom: 40px;
+}
+
+.city-search-text-field{
+  color: #000;
+}
+

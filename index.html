@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Weather App </title>
+    
+    
+    
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css'>
+
+        <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      html, body{
+  margin: 0;
+  padding: 0;
+  background: #1192D3;
+}
+
+a,
+a:hover,
+a:focus{
+  text-decoration: none;
+  color: #000;
+}
+
+.weather-display {
+  margin: 5% 25% 0 25%;
+  text-align: center;
+  border: 2px solid #fff;
+  padding: 50px;
+  color: #fff;
+}
+
+.app-name{
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.row{
+  font-size: 40px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.user-address{
+  padding-bottom: 25px;
+}
+
+
+i {
+  color: #fff;
+  margin: 0 0 8px;
+  font-family: weather;
+  font-size: 60px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.0;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15)
+}
+
+.temperature{
+}
+
+.search-city-user{
+  text-align: center;
+}
+
+.search-city{
+  font-size: 24px;
+  padding-bottom: 40px;
+}
+
+.city-search-text-field{
+  color: #000;
+}
+
+
+    </style>
+
+    
+        <script src="js/prefixfree.min.js"></script>
+
+    
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+  <div class="weather-display">
+    <div class="app-name">WEATHER APP</div>
+
+    <div class="row">
+      <div class="col-md-12 col-xs-12">
+        <div class="user-address">Toronto, CA</div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="temperature-icon"><i class="" id="weather-icon"></i></div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="temperature temperature-celcius">28 &#x2103</div>
+        <div class="temperature temperature-fahrenheit">45 &#x2109</div>
+        <button class="btn-sm btn btn-success button-temp">Toggle temp units</button>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="weather-condition">Clear</div>
+      </div>
+    </div><!--row ends here-->
+
+    <div class="row search-city-user">
+      <div class="">
+        <button type="button" class="button-city-search btn btn-md btn-danger">Search Weather for a City</button>
+      </div>
+    </div>
+
+    <div class="row search-city">
+      <div class="col-md-8 col-xs-12">
+        <input type="text" name="city-search-name" class="city-search-text-field" placeholder="Enter City, Country" />
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <button type="button" class="button-city-search-go btn btn-md btn-danger">GO!</button>
+      </div>
+    </div>
+
+    <div class="author">Created By <a href="http://codepen.io/vikrantsingh13" target="_blank">Vikrant Singh</a></div>
+  </div>
+</div><!--container-fluid ends here-->
+<!-- scripts -->
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
