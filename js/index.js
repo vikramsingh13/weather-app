@@ -43,7 +43,6 @@ function loadWeather(location, woeid){
       $('.user-address').html(address);
       
       loadWeatherIcon(weather.code);
-      console.log(weather.code);
       
     },
     error: function(error){
@@ -59,6 +58,7 @@ $(function(){
   
   tempF.hide();
   buttonCitySearchGo.hide();
+  buttonCitySearch.show();
   citySearchText.hide();
   
   $.get("http://ip-api.com/json", function(response){
