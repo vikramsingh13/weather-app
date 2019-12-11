@@ -1,4 +1,6 @@
-<h1 align="center">Weather-App v1.0 </h1>
+**NOTE: App is defunct now**
+
+<h3 align="center">Weather-App v1.0 </h3>
 
 <p><strong>Installation: </strong> Simply clone the repo and run the index.html in a browser.</p>
 <p><strong>Working App: </strong> Check out the working app <a href="http://codepen.io/vikrantsingh13/full/kXAKGy"><strong>here</strong></a>.</p>
