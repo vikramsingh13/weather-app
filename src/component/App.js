@@ -2,45 +2,47 @@ import React from 'react';
 import DateBuilder from './DateBuilder';
 import SearchBar from './SearchBar';
 import WeatherDisplay from './WeatherDisplay';
+import OpenWeather from '../apis/openWeather';
 
-
-const api = {
-  key: "",
-  base: "https://api.openweathermap.org/data/2.5"
-}
 
 class App extends React.Component{
   state = {
     date: DateBuilder,
     city: "Toronto",
     weatherInfo: {},
-    errorMessage: ""
+    errorMessage: "",
+    lat: 43,
+    lon: 43,
   };
 
-  searchCity = (e) => {
+  onChange = (e) => {
     this.setState({city: e.target.value});
   }
 
-  getWeatherInfo = async() => {
-    const url = api.base + 
-    "/weather?lat=43&lon=43&appid=" + 
-    api.key;
+  onSubmit = async() => {
 
-    await fetch(url)
-      .then(async response => {
+    const response = await OpenWeather.get('/weather',{
+      params: {
+        q: this.state.city,
+      }
+    });
 
-        this.setState({weatherInfo: response, errorMessage: ""});
-        console.log(this.state.weatherInfo);
-      })
-      .catch(error => {
-        this.setState({weatherInfo: {}, errorMessage: error.toString()});
-        console.log("An error occurrd while trying to fetch weather data: ", error);
-      });
+    console.log(response);
+
+
+    await this.setState({
+      weatherInfo: response.data.main,
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
+      city: response.data.name,
+    });
+
+    console.log(this.state.city);
 
   }
 
   componentDidMount(){
-    this.getWeatherInfo();
+    //this.onSubmit();
   }
 
   render(){
@@ -50,7 +52,8 @@ class App extends React.Component{
 
         <SearchBar 
         city={this.state.city}
-        onClick={this.searchCity} 
+        onSubmit={this.onSubmit}
+        onChange={this.onChange}
         />
 
         <DateBuilder />
@@ -58,6 +61,8 @@ class App extends React.Component{
         <WeatherDisplay 
         city={this.state.city}
         weatherInfo={this.state.weatherInfo}
+        lat={this.state.lat}
+        lon={this.state.lon}
         errorMessage={this.state.errorMessage}
         />
 
