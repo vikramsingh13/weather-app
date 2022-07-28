@@ -10,15 +10,21 @@ class WeatherDisplay extends Component{
 			lat: this.props.lat,
 			lon: this.props.lon,
 			city: this.props.city,
+			temp_f: null,
 		};
 	}
 
-	//kelvinToCelcius
+	//takes temp in C and returns temp in F
+	celciusToF = c => (c * 9 / 5) + 32;
+
+	//todo: add option to switch c/f
+	//todo: display lat, long, humidity
+	//todo: add vectors graphics for background
 
 	render(){
 		return (
 			<div className="weather-display">
-				{this.state.temp}K {this.state.city}
+				{this.state.city} {this.celciusToF(this.state.temp)}F
 			</div>
 		);
 	};

@@ -42,7 +42,7 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    //this.onSubmit();
+    this.onSubmit();
   }
 
   render(){
