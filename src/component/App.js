@@ -2,17 +2,21 @@ import React from 'react';
 import DateBuilder from './DateBuilder';
 import SearchBar from './SearchBar';
 import WeatherDisplay from './WeatherDisplay';
-import OpenWeather from '../apis/openWeather';
+import OpenWeather from '../apis/OpenWeather';
 
 
 class App extends React.Component{
   state = {
     date: DateBuilder,
-    city: "Toronto",
-    weatherInfo: {},
     errorMessage: "",
+    city: "Toronto",
+    temp: 0,
+    tempF: 0,
+    humidity: 0,
+    feelsLike: 0,
     lat: 43,
     lon: 43,
+
   };
 
   onChange = (e) => {
@@ -20,29 +24,34 @@ class App extends React.Component{
   }
 
   onSubmit = async() => {
-
     const response = await OpenWeather.get('/weather',{
       params: {
         q: this.state.city,
       }
     });
 
-    console.log(response);
+    await this.setWeatherDetails(response);
 
+  }
 
-    await this.setState({
-      weatherInfo: response.data.main,
+  //takes celcius and returns f
+  celciusToF = c => (c * 9 / 5) + 32;
+
+  setWeatherDetails = async(response) => {
+    const tempF = await this.celciusToF(response.data.main.temp);
+    this.setState({
+      temp: response.data.main.temp,
+      tempF: tempF,
+      humidity: response.data.main.humidity,
+      feelsLike: response.data.main.humidity,
       lat: response.data.coord.lat,
       lon: response.data.coord.lon,
       city: response.data.name,
     });
-
-    console.log(this.state.city);
-
   }
 
   componentDidMount(){
-    this.onSubmit();
+    //this.onSubmit();
   }
 
   render(){
@@ -51,19 +60,21 @@ class App extends React.Component{
         <h1>Weather App</h1>
 
         <SearchBar 
-        city={this.state.city}
-        onSubmit={this.onSubmit}
-        onChange={this.onChange}
+          city={this.state.city}
+          onSubmit={this.onSubmit}
+          onChange={this.onChange}
         />
 
         <DateBuilder />
 
         <WeatherDisplay 
-        city={this.state.city}
-        weatherInfo={this.state.weatherInfo}
-        lat={this.state.lat}
-        lon={this.state.lon}
-        errorMessage={this.state.errorMessage}
+          city={this.state.city}
+          temp={this.state.temp}
+          tempF={this.state.tempF}
+          humidity={this.state.humidity}
+          feelsLike={this.state.feelsLike}
+          lat={this.state.lat}
+          lon={this.state.lon}
         />
 
       </div>
