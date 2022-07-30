@@ -2,9 +2,7 @@ import React from 'react';
 import '../styles/WeatherDisplay.css';
 
 const WeatherDisplay = (props) => {
-
-	//todo: add option to switch c/f
-	//todo: display lat, long, humidity
+    
 	//todo: add vectors graphics for background
 
 	return (
@@ -15,7 +13,7 @@ const WeatherDisplay = (props) => {
 					<span className="weather-display-lat">
 					Lat: {props.lat}
 					</span>
-					&nbsp;&nbsp;|&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;
 					<span className="weather-display-lon">
 					Long: {props.lon}
 					</span>
@@ -37,6 +35,20 @@ const WeatherDisplay = (props) => {
 					&#8457; 
 					</span>	
 				</div>
+
+                <div className="weather-display-extra">
+                    Feels like: &nbsp;
+					<span className='weather-display-extra-c'>
+					{props.feelsLike}&#8451; 
+					</span>
+					<span className='weather-display-extra-f temp-hidden'>
+					{props.feelsLikeF}&#8457;
+					</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span className='weather-display-extra-humidity'>
+                    Humidity: {props.humidity}
+                    </span>
+                </div>
 			</div>
 		</div>
 	);

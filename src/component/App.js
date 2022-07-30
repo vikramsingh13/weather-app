@@ -15,6 +15,7 @@ class App extends React.Component{
         tempF: 68,
         humidity: 50,
         feelsLike: 22,
+        feelsLikeF: 71.6,
         lat: 43.6532,
         lon: 79.3832,
         tempDisplayC: true,
@@ -36,12 +37,12 @@ class App extends React.Component{
             console.log(err);
         });
 
-        await this.setWeatherDetails(response);
+        this.setWeatherDetails(response);
 
     }
 
     //takes celcius and returns f
-    celciusToF = c => (c * 9 / 5) + 32;
+    celciusToF = c => ((c * 9 / 5) + 32).toFixed(2);
 
     //toggles temp info unit from c to f and vice versa
     //for weather display
@@ -54,14 +55,26 @@ class App extends React.Component{
     //will switch from f to c if temp is true
     //c to f if temp is false
     showTempC = temp => {
-        const weatherDisplayC = document.querySelector(".weather-display-c").classList;
         const weatherDisplayF = document.querySelector(".weather-display-f").classList;
+        const weatherDisplayExtraF = document.querySelector(".weather-display-extra-f").classList;
+        const tempF = document.querySelector("#temp-f").classList;
+        const weatherDisplayC = document.querySelector(".weather-display-c").classList;
+        const weatherDisplayExtraC = document.querySelector(".weather-display-extra-c").classList;
+        const tempC = document.querySelector("#temp-c").classList;
         if(temp){
             weatherDisplayC.remove("temp-hidden");
             weatherDisplayF.add("temp-hidden");
+            weatherDisplayExtraC.remove("temp-hidden");
+            weatherDisplayExtraF.add("temp-hidden");
+            tempF.remove('selected-temp');
+            tempC.add('selected-temp');
         } else {
             weatherDisplayF.remove("temp-hidden");
             weatherDisplayC.add("temp-hidden");
+            weatherDisplayExtraF.remove("temp-hidden");
+            weatherDisplayExtraC.add("temp-hidden");
+            tempC.remove('selected-temp');
+            tempF.add('selected-temp');
         }
     }
 
@@ -81,13 +94,14 @@ class App extends React.Component{
       }
     }
 
-    setWeatherDetails = async(response) => {
-        const tempF = await this.celciusToF(response.data.main.temp).toFixed(2);
+    setWeatherDetails = (response) => {
+        const tempF = this.celciusToF(response.data.main.temp);
+        const tempExtraF = this.celciusToF(response.data.main.feels_like);
         this.setState({
             temp: response.data.main.temp,
             tempF: tempF,
             humidity: response.data.main.humidity,
-            feelsLike: response.data.main.humidity,
+            feelsLike: response.data.main.feels_like,
             lat: response.data.coord.lat,
             lon: response.data.coord.lon,
             city: response.data.name,
@@ -118,6 +132,7 @@ class App extends React.Component{
                         tempF={this.state.tempF}
                         humidity={this.state.humidity}
                         feelsLike={this.state.feelsLike}
+                        feelsLikeF={this.state.feelsLikeF}
                         lat={this.state.lat}
                         lon={this.state.lon}
                         tempDisplayC={this.state.tempDisplayC}
@@ -125,6 +140,10 @@ class App extends React.Component{
                         onClick={this.onClick}
                     
                     />
+
+                    <div className='app-copyright'>
+
+                    </div>
 
                 </div>{/*--app container ends--*/}
             </div> /*--app ends--*/            
