@@ -1,5 +1,6 @@
-/* #9e9186 - brownish
-
+/* 
+    #9e9186 - brownish
+    #1dcae4 - blue
 */
 
 html, body{
@@ -7,6 +8,13 @@ html, body{
     padding: 10px;
     font-family: 'Roboto', sans-serif;
     cursor: default;
+    
+}
+
+a, a:link, a:hover, a:active, a:visited{
+    text-decoration: none;
+    color: #1dcae4;/*blue*/
+    cursor: pointer;
 }
 
 .app{
@@ -30,4 +38,8 @@ html, body{
 
 .date-builder{
     margin: 5px;
+}
+
+.app-copyright{
+    margin-top: 30px;
 }

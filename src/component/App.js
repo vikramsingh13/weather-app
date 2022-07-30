@@ -142,7 +142,7 @@ class App extends React.Component{
                     />
 
                     <div className='app-copyright'>
-
+                    <a href="https://www.vikramsingh.tech/">Vikram Singh</a>  &copy; 2022 
                     </div>
 
                 </div>{/*--app container ends--*/}
