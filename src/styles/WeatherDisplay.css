@@ -1,0 +1,20 @@
+.weather-display-container>div{
+}
+
+.weather-display-city{
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.weather-display-temp{
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.selected-temp{
+    font-weight: bolder;
+}
+
+.temp-hidden{
+    display: none;
+}

@@ -1,0 +1,32 @@
+/* #9e9186 - brownish
+
+*/
+
+html, body{
+    margin: 0;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.app{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /*white*/
+}
+
+.app-container{
+    text-align: center;
+    background: #9e9186; /*brownish*/
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.app-heading{
+    font-size: 36px;
+    margin: 10px;
+}
+
+.date-builder{
+    margin: 5px;
+}

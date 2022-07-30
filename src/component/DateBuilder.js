@@ -14,7 +14,7 @@ const dateBuilder = () => {
 	let month = months[d.getMonth()];
 	let year = d.getFullYear();
 
-	return `${day} ${date} ${month} ${year}`;
+	return (<div className='date-builder'>{day} {date} {month} {year}</div>);
 }
 
 export default dateBuilder;
