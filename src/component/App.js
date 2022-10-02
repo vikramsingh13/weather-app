@@ -80,13 +80,13 @@ class App extends React.Component{
 
     //handles on click for weather display temp toggle
     onClick = event => {
-        if(event.target.id == "temp-c"){
+        if(event.target.id === "temp-c"){
             if(!this.state.tempDisplayC){
                 this.toggleTempDisplay();
                 this.showTempC(true);
             }
         }
-        if(event.target.id == "temp-f"){
+        if(event.target.id === "temp-f"){
             if(this.state.tempDisplayC){
                 this.toggleTempDisplay();
                 this.showTempC(false);
@@ -102,6 +102,7 @@ class App extends React.Component{
             tempF: tempF,
             humidity: response.data.main.humidity,
             feelsLike: response.data.main.feels_like,
+            feelsLikeF: tempExtraF,
             lat: response.data.coord.lat,
             lon: response.data.coord.lon,
             city: response.data.name,
@@ -109,7 +110,7 @@ class App extends React.Component{
     }
 
     componentDidMount(){
-        //this.onSubmit();
+        this.onSubmit();
     }
 
     render(){
