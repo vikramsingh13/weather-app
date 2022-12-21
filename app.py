@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('./client/build/index.html')
+    return render_template('index.html', flask_token="This is a flask token")
 
 @app.route('/hello')
 def hello():
