@@ -28,7 +28,10 @@ def get_weather():
 
 
 def get_data_from_open_weather(city):
+    #format query string
     url = f"{api.API_URL}&appid={api.API_KEY}&units={api.API_UNITS}&q={city}"
+    
+    #get response from open weather api
     response = urllib.request.urlopen(url)
 
     return response
